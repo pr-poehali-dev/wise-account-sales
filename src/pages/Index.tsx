@@ -30,9 +30,12 @@ const Index = () => {
       className="min-h-screen flex items-center justify-center p-4"
       style={{ backgroundColor: "#9FE870" }}
     >
-      <Card className="w-full max-w-md border-0 shadow-lg">
+      <Card className="w-full max-w-md border-0 shadow-lg rounded-xl">
         <CardHeader className="pb-2 text-center">
-          <CardTitle className="text-2xl font-bold text-emerald-700">
+          <CardTitle
+            className="text-2xl font-bold"
+            style={{ color: "#163300" }}
+          >
             WISE Аккаунты
           </CardTitle>
         </CardHeader>
@@ -41,46 +44,69 @@ const Index = () => {
           <div className="space-y-6">
             {/* Выбор типа аккаунта */}
             <div className="space-y-2">
-              <h3 className="font-medium">Тип аккаунта</h3>
+              <h3 className="font-medium" style={{ color: "#163300" }}>
+                Тип аккаунта
+              </h3>
               <RadioGroup
                 defaultValue="standard"
                 value={accountType}
                 onValueChange={setAccountType}
                 className="flex flex-col space-y-3"
               >
-                <div className="flex items-center space-x-3 p-3 border rounded-md hover:border-emerald-500 cursor-pointer">
+                <div
+                  className="flex items-center space-x-3 p-3 border rounded-md hover:border-opacity-70 cursor-pointer transition-all"
+                  style={{
+                    borderColor: accountType === "standard" ? "#163300" : "",
+                  }}
+                >
                   <RadioGroupItem value="standard" id="standard" />
                   <Label htmlFor="standard" className="flex-1 cursor-pointer">
-                    <div className="font-medium">Обычный</div>
+                    <div className="font-medium" style={{ color: "#163300" }}>
+                      Обычный
+                    </div>
                     <div className="text-sm text-gray-500">
                       Стандартный верифицированный аккаунт
                     </div>
                   </Label>
-                  <div className="font-medium text-emerald-700">5 000 ₽</div>
+                  <div className="font-medium" style={{ color: "#163300" }}>
+                    5 000 ₽
+                  </div>
                 </div>
 
-                <div className="flex items-center space-x-3 p-3 border rounded-md hover:border-emerald-500 cursor-pointer">
+                <div
+                  className="flex items-center space-x-3 p-3 border rounded-md hover:border-opacity-70 cursor-pointer transition-all"
+                  style={{
+                    borderColor: accountType === "custom" ? "#163300" : "",
+                  }}
+                >
                   <RadioGroupItem value="custom" id="custom" />
                   <Label htmlFor="custom" className="flex-1 cursor-pointer">
-                    <div className="font-medium">Кастомный</div>
+                    <div className="font-medium" style={{ color: "#163300" }}>
+                      Кастомный
+                    </div>
                     <div className="text-sm text-gray-500">
                       Настроенный аккаунт с расширенными возможностями
                     </div>
                   </Label>
-                  <div className="font-medium text-emerald-700">10 000 ₽</div>
+                  <div className="font-medium" style={{ color: "#163300" }}>
+                    10 000 ₽
+                  </div>
                 </div>
               </RadioGroup>
             </div>
 
             {/* Выбор количества */}
             <div className="space-y-2">
-              <h3 className="font-medium">Количество</h3>
-              <div className="flex items-center rounded-md border">
+              <h3 className="font-medium" style={{ color: "#163300" }}>
+                Количество
+              </h3>
+              <div className="flex items-center rounded-md border border-gray-200 overflow-hidden">
                 <Button
                   type="button"
                   variant="ghost"
                   size="icon"
-                  className="h-8 w-8 text-emerald-700"
+                  className="h-8 w-8"
+                  style={{ color: "#163300" }}
                   onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
                 >
                   <Icon name="Minus" className="h-4 w-4" />
@@ -98,7 +124,8 @@ const Index = () => {
                   type="button"
                   variant="ghost"
                   size="icon"
-                  className="h-8 w-8 text-emerald-700"
+                  className="h-8 w-8"
+                  style={{ color: "#163300" }}
                   onClick={() => setQuantity((prev) => prev + 1)}
                 >
                   <Icon name="Plus" className="h-4 w-4" />
@@ -107,10 +134,15 @@ const Index = () => {
             </div>
 
             {/* Итоговая стоимость */}
-            <div className="pt-4 border-t">
+            <div className="pt-4 border-t border-gray-100">
               <div className="flex justify-between items-center">
-                <span className="font-medium">Итого:</span>
-                <span className="text-xl font-bold text-emerald-700">
+                <span className="font-medium" style={{ color: "#163300" }}>
+                  Итого:
+                </span>
+                <span
+                  className="text-xl font-bold"
+                  style={{ color: "#163300" }}
+                >
                   {totalPrice.toLocaleString()} ₽
                 </span>
               </div>
@@ -119,7 +151,10 @@ const Index = () => {
         </CardContent>
 
         <CardFooter>
-          <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white">
+          <Button
+            className="w-full text-white hover:opacity-90 transition-opacity rounded-md"
+            style={{ backgroundColor: "#163300" }}
+          >
             <Icon name="ShoppingCart" className="mr-2 h-4 w-4" />
             Купить аккаунты
           </Button>
